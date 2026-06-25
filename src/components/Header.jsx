@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = React.memo(function Header({ onReportClick, onHomeClick, activePage }) {
   return (
-    <header className="bg-white border-b border-gray-100 px-6 md:px-12 py-4 flex items-center justify-between w-full">
+    <header className="bg-white/90 backdrop-blur-md border-b border-white/20 px-6 md:px-12 py-4 flex items-center justify-between w-full relative z-50">
       {/* Left section: Logo & Titles */}
       <div className="flex items-center space-x-4 cursor-pointer" onClick={onHomeClick}>
         {/* BQA Logo */}

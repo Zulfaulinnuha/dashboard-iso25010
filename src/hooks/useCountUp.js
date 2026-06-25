@@ -7,18 +7,18 @@ import { useState, useEffect } from 'react';
  * @returns {number|string} The animated current value.
  */
 export function useCountUp(endValue, duration = 1000) {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(() => {
+    const end = parseFloat(endValue);
+    return isNaN(end) ? endValue : 0;
+  });
 
   useEffect(() => {
-    const end = parseInt(endValue, 10);
-    if (isNaN(end)) {
-      setCount(endValue);
+    const end = parseFloat(endValue);
+    if (isNaN(end) || end === 0) {
       return;
     }
-    if (end === 0) {
-      setCount(0);
-      return;
-    }
+
+    const isFloat = endValue.toString().includes('.') || (typeof endValue === 'number' && endValue % 1 !== 0);
 
     let startTimestamp = null;
     let timerId;
@@ -26,12 +26,18 @@ export function useCountUp(endValue, duration = 1000) {
     const step = (timestamp) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      setCount(Math.floor(progress * end));
+      const current = progress * end;
+      
+      if (isFloat) {
+        setCount(current.toFixed(2));
+      } else {
+        setCount(Math.floor(current));
+      }
       
       if (progress < 1) {
         timerId = window.requestAnimationFrame(step);
       } else {
-        setCount(end);
+        setCount(isFloat ? end.toFixed(2) : end);
       }
     };
 

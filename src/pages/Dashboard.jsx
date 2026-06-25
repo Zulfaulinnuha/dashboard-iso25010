@@ -1,78 +1,78 @@
-import React, { useMemo } from 'react';
+import { useMemo, useState, useCallback } from 'react';
 import Header from '../components/Header';
 import SummaryCard from '../components/SummaryCard';
 import ISOChart from '../components/ISOChart';
-import ResultCard from '../components/ResultCard';
+import IssueAccordion from '../components/IssueAccordion';
 import { dashboardData } from '../data/dashboardData';
+import { issuesData } from '../data/issuesData';
+import { feedbackData } from '../data/feedbackData';
 
 export default function Dashboard({ onReportClick }) {
   const { metricsData, summaryStats } = dashboardData;
 
-  // Optimize average score calculation with useMemo
-  const averageScore = useMemo(() => {
-    const totalScore = metricsData.reduce((sum, item) => sum + item.score, 0);
-    return Math.round(totalScore / metricsData.length);
-  }, [metricsData]);
+  // Manage open accordion item ID per section ID (collapsed by default)
+  const [openItemIds, setOpenItemIds] = useState({
+    'system-issues': null,
+    'feedback-issues': null,
+  });
+
+  // Toggle handlers that ensure only one accordion is open at a time within that section
+  const handleToggle = useCallback((sectionId, itemId) => {
+    setOpenItemIds(prev => ({
+      ...prev,
+      [sectionId]: prev[sectionId] === itemId ? null : itemId
+    }));
+  }, []);
 
   // Unified configuration array to map summary cards and avoid repeated JSX blocks
   const summaryCardsConfig = useMemo(() => [
     {
       key: 'totalCharacteristics',
       stats: summaryStats.totalCharacteristics,
-      bgColor: 'bg-bqa-blue',
+      bgColor: 'bg-white/92 backdrop-blur-[10px] border border-white/30 shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.18)] transition-all duration-300',
       iconName: 'MessageSquare',
-      iconColorClass: 'text-amber-500',
-      iconBgColorClass: 'bg-blue-50/70',
-      valueColorClass: 'text-blue-900',
+      iconColorClass: 'text-blue-600',
+      iconBgColorClass: 'bg-blue-50',
+      valueColorClass: 'text-slate-800',
       delay: 0
-    },
-    {
-      key: 'qualityStatus',
-      stats: summaryStats.qualityStatus,
-      bgColor: 'bg-bqa-green',
-      iconName: 'Briefcase',
-      iconColorClass: 'text-purple-600',
-      iconBgColorClass: 'bg-green-50/70',
-      valueColorClass: 'text-emerald-900',
-      delay: 100
     },
     {
       key: 'testingTools',
       stats: summaryStats.testingTools,
-      bgColor: 'bg-bqa-gray',
+      bgColor: 'bg-white/92 backdrop-blur-[10px] border border-white/30 shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.18)] transition-all duration-300',
       iconName: 'Percent',
-      iconColorClass: 'text-blue-600',
-      iconBgColorClass: 'bg-slate-200/70',
-      valueColorClass: 'text-slate-900',
-      delay: 200
+      iconColorClass: 'text-slate-600',
+      iconBgColorClass: 'bg-slate-100',
+      valueColorClass: 'text-slate-800',
+      delay: 100
     },
     {
-      key: 'averageScore',
+      key: 'overallQualityStatus',
       stats: {
-        ...summaryStats.averageScore,
-        value: `${averageScore}%`
+        title: 'Kategori terbanyak dalam evaluasi sistem',
+        value: 'SANGAT BAIK (DOMINAN)',
       },
-      bgColor: 'bg-bqa-tan',
-      iconName: 'TrendingUp',
-      iconColorClass: 'text-red-500',
-      iconBgColorClass: 'bg-amber-50/70',
-      valueColorClass: 'text-amber-900',
-      delay: 300
+      bgColor: 'bg-white/92 backdrop-blur-[10px] border border-white/30 shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.18)] transition-all duration-300',
+      iconName: 'Check',
+      iconColorClass: 'text-emerald-600',
+      iconBgColorClass: 'bg-emerald-50',
+      valueColorClass: 'text-emerald-700',
+      delay: 200
     }
-  ], [summaryStats, averageScore]);
+  ], [summaryStats]);
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+    <div className="min-h-screen bg-transparent flex flex-col font-sans">
       {/* Header */}
       <Header activePage="dashboard" onReportClick={onReportClick} />
 
       {/* Main Content Area */}
-      <main className="flex-1 p-4 md:p-8 lg:p-12 max-w-[1920px] mx-auto w-full">
-        {/* Large Rounded Container Box */}
-        <div className="bg-white border border-slate-200/60 rounded-[32px] shadow-sm p-6 md:p-8 space-y-8">
-          
+      <main className="flex-1 p-3 md:p-5 lg:p-6 max-w-[1920px] mx-auto w-full">
+        {/* Large Rounded Container Box (SaaS Contrast Layer) */}
+        <div className="bg-white/10 backdrop-blur-[20px] border border-white/20 rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-4 md:p-5 space-y-5">
+
           {/* Summary Cards Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {summaryCardsConfig.map((card) => (
               <SummaryCard
                 key={card.key}
@@ -94,24 +94,36 @@ export default function Dashboard({ onReportClick }) {
             <ISOChart data={metricsData} />
           </div>
 
-          {/* Result Cards Grid Section */}
-          <div className="space-y-4">
-            <h3 className="text-base font-bold text-slate-800 px-1">
-              Detailed Evaluation Results per Characteristic
+          {/* Section 1: Temuan Sistem (White Card Grouping) */}
+          <div id="system-issues-section" className="bg-white/92 backdrop-blur-[10px] border border-white/30 rounded-[24px] p-4 md:p-5 shadow-[0_12px_30px_rgba(0,0,0,0.12)] space-y-3">
+            <h3 className="text-[19px] font-extrabold text-slate-800 border-b border-slate-100 pb-2 px-1 flex items-center justify-between">
+              <span>Temuan Sistem</span>
+              <span className="text-xs font-bold bg-slate-100 text-slate-600 px-3 py-1 rounded-full shadow-sm">
+                {issuesData.length} Temuan
+              </span>
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {metricsData.map((item) => (
-                <ResultCard
-                  key={item.id}
-                  name={item.name}
-                  tool={item.tool}
-                  score={item.score}
-                  category={item.category}
-                  description={item.description}
-                  iconName={item.iconName}
-                />
-              ))}
-            </div>
+            <IssueAccordion
+              items={issuesData}
+              openId={openItemIds['system-issues']}
+              onToggle={(id) => handleToggle('system-issues', id)}
+              type="system"
+            />
+          </div>
+
+          {/* Section 2: Masukan Pengguna (SUS Questionnaire) (White Card Grouping) */}
+          <div className="bg-white/92 backdrop-blur-[10px] border border-white/30 rounded-[24px] p-4 md:p-5 shadow-[0_12px_30px_rgba(0,0,0,0.12)] space-y-3">
+            <h3 className="text-[19px] font-extrabold text-slate-800 border-b border-slate-100 pb-2 px-1 flex items-center justify-between">
+              <span>Masukan Pengguna (SUS Questionnaire)</span>
+              <span className="text-xs font-bold bg-blue-50 text-blue-600 px-3 py-1 rounded-full shadow-sm border border-blue-100">
+                {feedbackData.length} Kategori Masukan
+              </span>
+            </h3>
+            <IssueAccordion
+              items={feedbackData}
+              openId={openItemIds['feedback-issues']}
+              onToggle={(id) => handleToggle('feedback-issues', id)}
+              type="feedback"
+            />
           </div>
 
         </div>

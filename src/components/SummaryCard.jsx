@@ -33,7 +33,7 @@ const SummaryCard = React.memo(function SummaryCard({
 
   return (
     <div 
-      className={`rounded-[24px] p-6 ${bgColor} shadow-sm hover:shadow-lg hover:-translate-y-1 flex items-center space-x-4 transition-all duration-500 ease-out flex-1 min-w-[220px] ${
+      className={`rounded-[24px] p-6 ${bgColor} flex items-center space-x-4 transition-all duration-500 ease-out flex-1 min-w-[220px] ${
         mounted ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95 pointer-events-none'
       }`}
     >
@@ -51,7 +51,7 @@ const SummaryCard = React.memo(function SummaryCard({
           {title}
         </span>
         {subtext && (
-          <span className="text-[10px] font-semibold text-slate-500 leading-none mt-0.5">
+          <span className="text-[10px] font-semibold text-slate-500 leading-tight mt-0.5 whitespace-pre-line">
             {subtext}
           </span>
         )}

@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import IssueAccordion from '../components/IssueAccordion';
 import { issuesData } from '../data/issuesData';
@@ -20,7 +20,7 @@ export default function IssuesReport({ onBackClick }) {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans relative overflow-x-hidden">
+    <div className="min-h-screen bg-transparent flex flex-col font-sans relative overflow-x-hidden">
       
       {/* ==========================================
           DECORATIVE FIGMA ELEMENTS (Absolute Positioned)
@@ -47,13 +47,13 @@ export default function IssuesReport({ onBackClick }) {
       >
         <polygon points="50,15 90,85 10,85" fill="currentColor" stroke="rgba(168, 85, 247, 0.2)" strokeWidth="3" />
       </svg>
-
+ 
       {/* 3. Red Circle (Bottom-Right) */}
       <div className="absolute bottom-28 right-16 w-32 h-32 rounded-full bg-rose-100/40 border-2 border-rose-200/50 -z-10 shadow-sm pointer-events-none"></div>
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-rose-200/15 rounded-full blur-[120px] -z-20 pointer-events-none"></div>
 
       {/* Custom Page 2 Header */}
-      <header className="bg-white border-b border-gray-100 px-6 md:px-12 py-4 flex items-center justify-between w-full relative z-10">
+      <header className="bg-white/90 backdrop-blur-md border-b border-white/20 px-6 md:px-12 py-4 flex items-center justify-between w-full relative z-50">
         {/* Back Button */}
         <button
           onClick={onBackClick}
@@ -75,9 +75,9 @@ export default function IssuesReport({ onBackClick }) {
       </header>
 
       {/* Main Container */}
-      <main className="flex-1 p-4 md:p-8 lg:p-12 max-w-[1920px] mx-auto w-full relative z-10">
-        {/* White Rounded Card Box */}
-        <div className="bg-white/95 backdrop-blur-sm border border-slate-200/60 rounded-[32px] shadow-sm p-6 md:p-8 lg:p-10 space-y-10">
+      <main className="flex-1 p-3 md:p-5 lg:p-6 max-w-[1920px] mx-auto w-full relative z-10">
+        {/* White Rounded Card Box (SaaS Contrast Layer) */}
+        <div className="bg-white/10 backdrop-blur-[20px] border border-white/20 rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-4 md:p-5 lg:p-6 space-y-5">
           
           {/* Page Title */}
           <div>
@@ -89,8 +89,8 @@ export default function IssuesReport({ onBackClick }) {
             </p>
           </div>
 
-          {/* Section 1: Temuan Sistem */}
-          <div className="space-y-4">
+          {/* Section 1: Temuan Sistem (White Card Grouping) */}
+          <div className="bg-white/92 backdrop-blur-[10px] border border-white/30 rounded-[24px] p-4 md:p-5 shadow-[0_12px_30px_rgba(0,0,0,0.12)] space-y-3">
             <h3 className="text-lg font-extrabold text-slate-800 border-b border-slate-100 pb-2 px-1 flex items-center justify-between">
               <span>Temuan Sistem</span>
               <span className="text-xs font-bold bg-slate-100 text-slate-600 px-3 py-1 rounded-full shadow-sm">
@@ -105,8 +105,8 @@ export default function IssuesReport({ onBackClick }) {
             />
           </div>
 
-          {/* Section 2: Masukan Pengguna (SUS Questionnaire) */}
-          <div className="space-y-4 pt-2">
+          {/* Section 2: Masukan Pengguna (SUS Questionnaire) (White Card Grouping) */}
+          <div className="bg-white/92 backdrop-blur-[10px] border border-white/30 rounded-[24px] p-4 md:p-5 shadow-[0_12px_30px_rgba(0,0,0,0.12)] space-y-3">
             <h3 className="text-lg font-extrabold text-slate-800 border-b border-slate-100 pb-2 px-1 flex items-center justify-between">
               <span>Masukan Pengguna (SUS Questionnaire)</span>
               <span className="text-xs font-bold bg-blue-50 text-blue-600 px-3 py-1 rounded-full shadow-sm border border-blue-100">

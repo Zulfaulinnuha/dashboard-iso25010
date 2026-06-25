@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
 import Dashboard from './pages/Dashboard';
-import IssuesReport from './pages/IssuesReport';
 import './App.css';
 
 function App() {
-  const [activePage, setActivePage] = useState('dashboard');
+  const handleScrollToIssues = () => {
+    const element = document.getElementById('system-issues-section');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-slate-50">
-      {activePage === 'dashboard' ? (
-        <Dashboard onReportClick={() => setActivePage('issues')} />
-      ) : (
-        <IssuesReport onBackClick={() => setActivePage('dashboard')} />
-      )}
+    <div className="min-h-screen bg-transparent">
+      <Dashboard onReportClick={handleScrollToIssues} />
     </div>
   );
 }

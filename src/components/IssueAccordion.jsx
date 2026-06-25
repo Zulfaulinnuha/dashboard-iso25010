@@ -88,7 +88,7 @@ const IssueAccordion = React.memo(function IssueAccordion({
               onClick={() => onToggle(item.id)}
               className={`w-full px-6 py-4 flex items-center justify-between text-left focus:outline-none transition-colors ${style.headerHover}`}
             >
-              <span className={`font-bold text-sm md:text-base pr-4 leading-snug ${style.textColor}`}>
+              <span className={`font-bold text-[17px] pr-4 leading-snug ${style.textColor}`}>
                 {type === 'feedback' ? item.category : item.title}
               </span>
               <ChevronDown 
@@ -108,22 +108,22 @@ const IssueAccordion = React.memo(function IssueAccordion({
                 {/* Metadata Row */}
                 {type === 'system' ? (
                   <div className="flex flex-wrap gap-2 pb-1">
-                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-black border ${style.badge}`}>
+                    <span className={`px-2.5 py-0.5 rounded-full text-[13px] font-bold border ${style.badge}`}>
                       Karakteristik: {item.characteristic}
                     </span>
-                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-black border ${style.badge}`}>
+                    <span className={`px-2.5 py-0.5 rounded-full text-[13px] font-bold border ${style.badge}`}>
                       Tingkat Risiko: {item.severity}
                     </span>
-                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-black border ${style.badge}`}>
+                    <span className={`px-2.5 py-0.5 rounded-full text-[13px] font-bold border ${style.badge}`}>
                       Alat Uji: {item.tool}
                     </span>
                   </div>
                 ) : (
                   <div className="flex flex-wrap gap-2 pb-1">
-                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-black border ${style.badge}`}>
+                    <span className={`px-2.5 py-0.5 rounded-full text-[13px] font-bold border ${style.badge}`}>
                       Kategori: {item.category}
                     </span>
-                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-black border ${style.badge}`}>
+                    <span className={`px-2.5 py-0.5 rounded-full text-[13px] font-bold border ${style.badge}`}>
                       Jumlah Responden: {item.respondents}
                     </span>
                   </div>
@@ -132,8 +132,8 @@ const IssueAccordion = React.memo(function IssueAccordion({
                 {/* Description / Summary */}
                 {type === 'system' ? (
                   item.description && (
-                    <div className="text-slate-600 text-sm leading-relaxed">
-                      <p className="font-bold text-slate-400 text-xs uppercase tracking-wider mb-1">
+                    <div className="text-slate-600 text-[15px] leading-relaxed">
+                      <p className="font-extrabold text-slate-400 text-[14px] uppercase tracking-wider mb-1">
                         Deskripsi
                       </p>
                       <p className="text-slate-700 font-medium">{item.description}</p>
@@ -141,8 +141,8 @@ const IssueAccordion = React.memo(function IssueAccordion({
                   )
                 ) : (
                   item.summary && (
-                    <div className="text-slate-600 text-sm leading-relaxed">
-                      <p className="font-bold text-slate-400 text-xs uppercase tracking-wider mb-1">
+                    <div className="text-slate-600 text-[15px] leading-relaxed">
+                      <p className="font-extrabold text-slate-400 text-[14px] uppercase tracking-wider mb-1">
                         Ringkasan Temuan
                       </p>
                       <p className="text-slate-700 font-medium">{item.summary}</p>
@@ -155,10 +155,10 @@ const IssueAccordion = React.memo(function IssueAccordion({
                   <div className={`border-l-4 rounded-r-xl p-4 flex items-start space-x-3 ${style.recBox}`}>
                     <CheckCircle2 className={`w-5 h-5 mt-0.5 flex-shrink-0 ${style.recIcon}`} />
                     <div>
-                      <h5 className={`text-sm mb-1 ${style.recTitle}`}>
+                      <h5 className={`text-[15px] font-extrabold mb-1 ${style.recTitle}`}>
                         Rekomendasi
                       </h5>
-                      <p className={`text-xs md:text-sm leading-relaxed whitespace-pre-line ${style.recText}`}>
+                      <p className={`text-[15px] leading-relaxed font-semibold whitespace-pre-line ${style.recText}`}>
                         {item.recommendation}
                       </p>
                     </div>
