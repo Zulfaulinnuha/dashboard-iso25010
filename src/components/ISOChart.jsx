@@ -17,185 +17,356 @@ const ISOChart = React.memo(function ISOChart({ data }) {
     functional: {
       name: 'Functional Suitability',
       iconName: 'CheckCircle',
+
       tool: 'Cypress',
-      method: 'Automated Testing (Cypress) & Manual Black Box Testing',
-      cardResult: '70 Skenario Uji\n100% Lolos',
-      detailResult: '70 Skenario Uji\n100% Lolos',
-      interpretation: 'Seluruh kebutuhan fungsional sistem berjalan dengan benar dan sesuai dengan spesifikasi sistem.',
-      recommendation: ['Pertahankan kualitas fungsional saat ini dan lakukan pengujian regresi untuk rilis mendatang.'],
-      findings: [
-        'Total Skenario Pengujian: 70 skenario',
-        'Tingkat Keberhasilan: 100% Lolos (PASS)',
-        'Seluruh fitur fungsional utama (input, output, navigasi) berjalan dengan benar'
+
+      method:
+        'Automated Testing (Cypress) & Manual Black Box Testing',
+
+      cardResult:
+        '70 Requirement\nPASS: 70 | FAIL: 0',
+
+      detailResult:
+        'Requirement Diuji : 70\nPASS : 70\nFAIL : 0\nSuccess Rate : 100%',
+
+      analysis: [
+        'Seluruh requirement fungsional berhasil dijalankan sesuai expected result sehingga menunjukkan bahwa fungsi utama aplikasi telah berjalan sesuai kebutuhan pengguna dan memenuhi karakteristik Functional Suitability berdasarkan ISO/IEC 25010.'
       ],
-      conclusion: 'Karakteristik Functional Suitability telah memenuhi standar kualitas dengan sangat baik karena seluruh skenario pengujian berhasil dilewati dengan tingkat kelulusan 100%.',
+
+      findings: [
+        'Total requirement yang diuji sebanyak 70 requirement.',
+        'Seluruh requirement memperoleh status PASS dengan tingkat keberhasilan 100%.',
+        'Seluruh fitur utama aplikasi, meliputi registrasi, login, course, materi, latihan, submit, dan logout berjalan sesuai expected result.'
+      ],
+
+      recommendation: [
+        'Mempertahankan kualitas fungsional aplikasi melalui regression testing secara berkala setiap kali dilakukan pengembangan atau penambahan fitur.'
+      ],
+
+      conclusion:
+        'Functional Suitability memperoleh tingkat keberhasilan 100%, sehingga seluruh fungsi utama aplikasi telah memenuhi kebutuhan pengguna sesuai standar ISO/IEC 25010.',
+
       finalStatus: 'Sangat Baik',
-      badgeColor: { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200', dot: 'bg-emerald-500' },
+
+      badgeColor: {
+        bg: 'bg-emerald-50',
+        text: 'text-emerald-700',
+        border: 'border-emerald-200',
+        dot: 'bg-emerald-500'
+      },
+
       status: 'Sangat Baik'
     },
     performance: {
       name: 'Performance Efficiency',
       iconName: 'Gauge',
+
       tool: 'Cypress',
-      method: 'Pengukuran Waktu Respon Menggunakan Cypress & Chrome DevTools',
 
-      cardResult: 'Baik',
-      detailResult: 'Kategori: Baik',
+      method:
+        'Pengukuran waktu respon menggunakan Cypress & Chrome DevTools',
 
-      testingData: [
-        'Total Skenario: 12',
-        'Sangat Baik (<2 detik): 6',
-        'Baik (2–5 detik): 6',
-        'Respon Tercepat: 192 ms'
+      cardResult:
+        '12 Skenario\nKategori: Baik',
+
+      detailResult:
+        'Total Skenario : 12\nSangat Baik : 6\nBaik : 6\nRespon Tercepat : 192 ms : 6\nResponse Time Tertinggi : 7851 ms',
+
+      analysis: [
+        'Seluruh skenario pengujian memenuhi batas waktu respon yang telah ditetapkan. Sebagian besar fitur memberikan respon kurang dari dua detik, sedangkan beberapa proses seperti registrasi, login, dan akses materi masih berada pada kategori Baik sehingga secara keseluruhan karakteristik Performance Efficiency telah terpenuhi.'
       ],
-      interpretation: 'Aplikasi secara konsisten memberikan performa waktu respon di bawah ambang batas yang dapat diterima.',
-      recommendation: ['Optimalkan query lambat dan tingkatkan performa pada proses login yang berulang.'],
+
       findings: [
-        'Total Skenario Uji: 12 skenario respon',
-        'Kategori Sangat Baik (<2 detik): 6 skenario',
-        'Kategori Baik (2-5 detik): 5 skenario',
-        'Kategori Butuh Optimasi (>5 detik): 1 skenario (fitur login berulang)',
-        'Waktu Respon Tercepat: 192 ms'
+        'Total skenario pengujian sebanyak 12 skenario.',
+        'Sebanyak 6 skenario berada pada kategori Sangat Baik (<2 detik).',
+        'Sebanyak 6 skenario berada pada kategori Baik (2-5 detik).',
+        'Waktu respon tercepat diperoleh pada proses Submit Latihan sebesar 192 ms.',
+        'Seluruh skenario masih memenuhi batas waktu respon yang ditetapkan.'
       ],
-      conclusion: 'Karakteristik Performance Efficiency telah memenuhi standar kualitas karena sebagian besar skenario pengujian respon waktu berada dalam batas wajar dan aman.',
+
+      recommendation: [
+        'Melakukan optimasi pada proses registrasi, login, dan pemuatan materi agar waktu respon menjadi lebih konsisten, terutama ketika aplikasi menerima permintaan secara berulang.'
+      ],
+
+      conclusion:
+        'Karakteristik Performance Efficiency memenuhi standar kualitas karena seluruh skenario pengujian berhasil memberikan waktu respon dalam batas yang dapat diterima pengguna.',
+
       finalStatus: 'Baik',
-      badgeColor: { bg: 'bg-blue-50', text: 'text-blue-700', border: 'border-blue-200', dot: 'bg-blue-500' },
+
+      badgeColor: {
+        bg: 'bg-blue-50',
+        text: 'text-blue-700',
+        border: 'border-blue-200',
+        dot: 'bg-blue-500'
+      },
+
       status: 'Baik'
     },
     reliability: {
       name: 'Reliability',
       iconName: 'ShieldCheck',
+
       tool: 'Cypress',
-      method: 'Stress Testing',
-      cardResult: '230 Total Permintaan\n100% Sukses',
-      detailResult: '230 Total Permintaan\n100% Sukses',
-      interpretation: 'Tidak terjadi crash atau kegagalan sistem selama pengujian beban berulang dilakukan.',
-      recommendation: ['Lanjutkan stress testing setelah melakukan pembaruan fitur utama.'],
-      findings: [
-        'Total Permintaan (Stress Testing): 230 request',
-        'Tingkat Keberhasilan: 100% Sukses tanpa kegagalan',
-        'Sistem stabil tanpa adanya indikasi memory leak atau crash'
+
+      method:
+        'Stress Testing (Repeated Execution) Menggunakan Cypress',
+
+      cardResult:
+        '230 Eksekusi\nSuccess Rate: 100%',
+
+      detailResult:
+        'Total Eksekusi : 230\nBerhasil : 230\nGagal : 0\nSuccess Rate : 100%',
+
+      analysis: [
+        'Seluruh skenario stress testing berhasil dijalankan tanpa kegagalan sehingga menunjukkan bahwa aplikasi mampu mempertahankan fungsi utama secara konsisten selama proses pengujian berulang.'
       ],
-      conclusion: 'Karakteristik Reliability telah memenuhi standar kualitas dengan sangat baik karena sistem terbukti stabil dan tidak mengalami kegagalan selama pengujian beban.',
+
+      findings: [
+        'Total eksekusi pengujian sebanyak 230 kali.',
+        'Seluruh eksekusi berhasil dengan tingkat keberhasilan 100%.',
+        'Tidak ditemukan kegagalan fungsi selama stress testing berlangsung.',
+        'Seluruh fitur utama tetap berjalan normal setelah dilakukan pengujian berulang.'
+      ],
+
+      recommendation: [
+        'Melakukan stress testing secara berkala setelah penambahan atau perubahan fitur untuk memastikan kestabilan sistem tetap terjaga.'
+      ],
+
+      conclusion:
+        'Karakteristik Reliability memperoleh success rate sebesar 100%, sehingga aplikasi mampu mempertahankan fungsi utama secara konsisten selama pengujian berulang.',
+
       finalStatus: 'Sangat Baik',
-      badgeColor: { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200', dot: 'bg-emerald-500' },
+
+      badgeColor: {
+        bg: 'bg-emerald-50',
+        text: 'text-emerald-700',
+        border: 'border-emerald-200',
+        dot: 'bg-emerald-500'
+      },
+
       status: 'Sangat Baik'
     },
     security: {
       name: 'Security',
       iconName: 'ShieldAlert',
+
       tool: 'OWASP ZAP',
-      method: 'OWASP ZAP Penetrasi & Vulnerability Scanning',
-      cardResult: '32 Peringatan\n1 Risiko Tinggi',
-      detailResult: '32 Peringatan Keamanan',
-      testingData: [
-        'Risiko Tinggi: 1',
-        'Sedang: 10',
-        'Rendah: 10',
-        'Informasional: 11'
+
+      method:
+        'Automated Scan & Active Scan Menggunakan OWASP ZAP',
+
+      cardResult:
+        '32 Alert\n1 High Risk',
+
+      detailResult:
+        'Total Alert : 32\nHigh Risk : 1\nMedium : 10\nLow : 10\nInformational : 11',
+
+      analysis: [
+        'Sebagian besar fitur aplikasi tidak memiliki kerentanan kategori High Risk. Namun, pada fitur Run Code ditemukan satu kerentanan High Risk berupa SQL Injection pada parameter question_id yang menunjukkan bahwa validasi dan sanitasi input pada sisi server belum dilakukan secara optimal.'
       ],
-      interpretation: 'Ditemukan kerentanan keamanan SQL Injection pada fitur Run Code.',
-      recommendation: [
-        'Terapkan parameterized queries',
-        'Tingkatkan validasi input pengguna',
-        'Lakukan sanitasi input untuk karakter berbahaya',
-        'Sembunyikan pesan kesalahan database SQL dari pengguna'
-      ],
+
       findings: [
-        'Total Alert: 32 temuan celah keamanan',
-        'High Risk: 1 (SQL Injection ditemukan pada fitur Run Code)',
-        'Medium Risk: 10 temuan',
-        'Low Risk: 10 temuan',
-        'Informational: 11 temuan'
+        'Total alert yang ditemukan sebanyak 32.',
+        'Ditemukan 1 kerentanan High Risk berupa SQL Injection pada fitur Run Code.',
+        'Sebagian besar alert lainnya berada pada kategori Medium, Low, dan Informational yang berkaitan dengan konfigurasi keamanan aplikasi.'
       ],
-      conclusion: 'Karakteristik Security belum memenuhi standar kualitas karena masih ditemukan satu kerentanan High Risk berupa SQL Injection pada fitur Run Code yang dapat membahayakan database.',
+
+      recommendation: [
+        'Menerapkan validasi dan sanitasi input pada sisi server.',
+        'Menggunakan prepared statement atau parameterized query untuk mencegah SQL Injection.',
+        'Membatasi informasi yang ditampilkan pada pesan kesalahan (error handling) agar informasi internal sistem tidak terekspos.'
+      ],
+
+      conclusion:
+        'Karakteristik Security belum sepenuhnya memenuhi standar ISO/IEC 25010 karena masih ditemukan satu kerentanan High Risk berupa SQL Injection pada fitur Run Code.',
+
       finalStatus: 'Perlu Perbaikan',
-      badgeColor: { bg: 'bg-red-50', text: 'text-red-700', border: 'border-red-200', dot: 'bg-red-500' },
+
+      badgeColor: {
+        bg: 'bg-red-50',
+        text: 'text-red-700',
+        border: 'border-red-200',
+        dot: 'bg-red-500'
+      },
+
       status: 'Perlu Perbaikan'
     },
     usability: {
       name: 'Usability',
       iconName: 'Users',
-      tool: 'SUS Questionnaire',
-      method: 'System Usability Scale (SUS)',
-      cardResult: 'SUS Score: 60.15\nKategori: Cukup',
-      detailResult: 'SUS Score: 60.15\nKategori: Cukup',
-      interpretation: 'Aplikasi dapat digunakan dengan cukup baik, namun memerlukan perbaikan pada antarmuka (UI) dan pengalaman pengguna (UX) berdasarkan masukan pengguna.',
-      recommendation: [
-        'Tingkatkan estetika desain antarmuka pengguna',
-        'Perbaiki navigasi alur sistem',
-        'Tambahkan indikator kemajuan pembelajaran',
-        'Optimalkan performa pemuatan halaman'
+
+      tool: 'System Usability Scale (SUS)',
+
+      method:
+        'Evaluasi Menggunakan Kuesioner System Usability Scale (50 Responden)',
+
+      cardResult:
+        'SUS : 60,15\nKategori : OK (Cukup)',
+
+      detailResult:
+        'Responden : 50\nSkor SUS : 60,15\nKategori : OK (Cukup)',
+
+      analysis: [
+        'Hasil evaluasi menunjukkan bahwa aplikasi telah dapat digunakan dengan cukup baik oleh pengguna. Namun, masih diperlukan peningkatan pada aspek antarmuka, navigasi, responsivitas tampilan, dan pengalaman pengguna agar tingkat usability dapat ditingkatkan.'
       ],
+
       findings: [
-        'SUS Score: 60.15',
-        'Kategori: Cukup',
-        'Evaluasi Kuesioner: Pengguna merasa antarmuka kurang estetis dan navigasi perlu disederhanakan'
+        'Jumlah responden sebanyak 50 orang.',
+        'Skor System Usability Scale (SUS) sebesar 60,15.',
+        'Berdasarkan klasifikasi SUS, aplikasi berada pada kategori OK (Cukup).',
+        'Sebagian besar masukan pengguna berkaitan dengan penyempurnaan UI/UX, navigasi, responsivitas mobile, dan kecepatan loading.'
       ],
-      conclusion: 'Karakteristik Usability berada pada tingkat cukup namun memerlukan perbaikan antarmuka (UI) dan pengalaman pengguna (UX) karena skor SUS masih berada di kategori Cukup.',
+
+      recommendation: [
+        'Menyederhanakan desain antarmuka agar lebih intuitif.',
+        'Meningkatkan konsistensi navigasi dan responsivitas pada perangkat mobile.',
+        'Menambahkan indikator progres pembelajaran serta mempercepat proses loading halaman.'
+      ],
+
+      conclusion:
+        'Karakteristik Usability memperoleh skor SUS sebesar 60,15 sehingga berada pada kategori OK (Cukup). Aplikasi telah dapat digunakan, namun masih memerlukan penyempurnaan untuk meningkatkan pengalaman pengguna.',
+
       finalStatus: 'Cukup',
-      badgeColor: { bg: 'bg-orange-50', text: 'text-orange-700', border: 'border-orange-200', dot: 'bg-orange-500' },
+
+      badgeColor: {
+        bg: 'bg-orange-50',
+        text: 'text-orange-700',
+        border: 'border-orange-200',
+        dot: 'bg-orange-500'
+      },
+
       status: 'Cukup'
     },
     compatibility: {
       name: 'Compatibility',
       iconName: 'Globe',
+
       tool: 'Playwright',
-      method: 'Coexistence Testing Menggunakan Playwright',
-      cardResult: '100% Lolos',
-      detailResult: '100% Berdampingan Tanpa Konflik',
-      interpretation: 'Aplikasi berhasil berjalan secara berdampingan dengan platform lain seperti YouTube dan WhatsApp Web tanpa adanya konflik sistem.',
-      recommendation: ['Pertahankan kompatibilitas dan lakukan pengujian secara berkala setelah adanya pembaruan browser.'],
-      findings: [
-        'Pengujian Koeksistensi: 100% Berhasil',
-        'Beroperasi bersama YouTube: Berjalan lancar tanpa hambatan',
-        'Beroperasi bersama WhatsApp Web: Berjalan lancar tanpa hambatan'
+
+      method:
+        'Co-existence Testing Menggunakan Playwright',
+
+      cardResult:
+        '9 Test Case\nPASS: 9',
+
+      detailResult:
+        'Test Case : 9\nPASS : 9\nFAIL : 0\nCompatibility : 100%',
+
+      analysis: [
+        'Seluruh skenario compatibility berhasil dijalankan sehingga aplikasi mampu beroperasi secara berdampingan dengan aplikasi web lain tanpa mengalami konflik fungsi maupun gangguan operasional.'
       ],
-      conclusion: 'Karakteristik Compatibility telah memenuhi standar kualitas dengan sangat baik karena aplikasi dapat beroperasi bersamaan dengan sistem eksternal lain tanpa gangguan.',
+
+      findings: [
+        'Sebanyak 9 test case berhasil dijalankan dengan status PASS.',
+        'Aplikasi dapat berjalan bersamaan dengan YouTube dan WhatsApp Web tanpa konflik.',
+        'Fitur login, My Course, materi, Run Code, dan Submit tetap berjalan normal selama coexistence.'
+      ],
+
+      recommendation: [
+        'Melakukan pengujian compatibility secara berkala setelah adanya pembaruan browser maupun aplikasi pendukung.'
+      ],
+
+      conclusion:
+        'Karakteristik Compatibility memperoleh nilai 100%, sehingga aplikasi mampu berjalan berdampingan dengan aplikasi web lain tanpa memengaruhi fungsi utama.',
+
       finalStatus: 'Sangat Baik',
-      badgeColor: { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200', dot: 'bg-emerald-500' },
+
+      badgeColor: {
+        bg: 'bg-emerald-50',
+        text: 'text-emerald-700',
+        border: 'border-emerald-200',
+        dot: 'bg-emerald-500'
+      },
+
       status: 'Sangat Baik'
     },
     maintainability: {
       name: 'Maintainability',
       iconName: 'Wrench',
-      tool: 'Checklist & Regression Testing',
-      method: 'Regression Testing & Checklist Evaluasi Maintainability',
-      cardResult: '60% Terpenuhi',
-      detailResult: '60% Terpenuhi',
-      interpretation: 'Pengujian regresi berhasil dilalui, namun beberapa aspek pemeliharaan kode (maintainability) masih perlu ditingkatkan.',
-      recommendation: [
-        'Tingkatkan penanganan kesalahan (error handling)',
-        'Perbaiki logika validasi sistem',
-        'Optimalkan manajemen sesi logout pengguna'
+
+      tool: 'Regression Testing & Checklist',
+
+      method:
+        'Regression Testing Menggunakan Cypress & Checklist Maintainability',
+
+      cardResult:
+        '15 Indikator\n60% Terpenuhi',
+
+      detailResult:
+        'Indikator : 15\nYa : 9\nTidak : 6\nMaintainability : 60%',
+
+      analysis: [
+        'Regression testing menunjukkan seluruh fungsi utama tetap berjalan dengan baik. Namun, hasil checklist menunjukkan masih terdapat beberapa aspek maintainability yang perlu ditingkatkan, terutama pada modifiability dan testability.'
       ],
+
       findings: [
-        'Skor Evaluasi Checklist: 60% Terpenuhi',
-        'Pengujian Regresi: Berhasil dilewati tanpa merusak fungsionalitas sebelumnya',
-        'Aspek Kritis: Perlunya perbaikan penanganan error dan validasi input di sisi server'
+        'Regression testing berhasil dijalankan tanpa kegagalan fungsi.',
+        'Sebanyak 9 dari 15 indikator maintainability terpenuhi.',
+        'Masih ditemukan inkonsistensi validasi form, kerentanan SQL Injection, serta beberapa fitur yang memerlukan pengujian manual.'
       ],
-      conclusion: 'Karakteristik Maintainability berada pada tingkat cukup namun memerlukan peningkatan standarisasi kode dan penanganan kesalahan (error handling) untuk mempermudah pemeliharaan sistem.',
+
+      recommendation: [
+        'Menyempurnakan validasi sistem dan penanganan error.',
+        'Memperbaiki mekanisme logout agar sesi pengguna ditutup dengan lebih baik.',
+        'Meningkatkan cakupan automation testing pada fitur yang masih memerlukan pengujian manual.'
+      ],
+
+      conclusion:
+        'Karakteristik Maintainability memperoleh nilai 60%, sehingga masih diperlukan peningkatan pada aspek modifiability dan testability untuk mempermudah proses pemeliharaan sistem.',
+
       finalStatus: 'Cukup',
-      badgeColor: { bg: 'bg-orange-50', text: 'text-orange-700', border: 'border-orange-200', dot: 'bg-orange-500' },
+
+      badgeColor: {
+        bg: 'bg-orange-50',
+        text: 'text-orange-700',
+        border: 'border-orange-200',
+        dot: 'bg-orange-500'
+      },
+
       status: 'Cukup'
     },
     portability: {
       name: 'Portability',
       iconName: 'Laptop',
-      tool: 'Cross Browser Testing',
-      method: 'Cross Browser & Multi-device Testing',
-      cardResult: '100% Kompatibel',
-      detailResult: '100% Kompatibel',
-      interpretation: 'Aplikasi berjalan dengan konsisten dan lancar di berbagai browser (Chromium, Firefox, WebKit) dan sistem operasi (Windows, Android, iOS).',
-      recommendation: ['Teruskan pemantauan stabilitas aplikasi pada rilis versi browser terbaru.'],
-      findings: [
-        'Dukungan Browser: Berhasil diuji pada Chromium, Firefox, dan WebKit (Safari)',
-        'Dukungan Sistem Operasi: Berjalan baik di Windows, Android, dan iOS',
-        'Layout Antarmuka: Tetap responsif dan proporsional di semua resolusi layar'
+
+      tool: 'Playwright',
+
+      method:
+        'Cross-browser & Multi-platform Testing Menggunakan Playwright',
+
+      cardResult:
+        '10 Test Case\nPASS: 10',
+
+      detailResult:
+        'Test Case : 10\nPASS : 10\nFAIL : 0\nPortability : 100%',
+
+      analysis: [
+        'Seluruh skenario portability berhasil dijalankan sehingga aplikasi mampu beroperasi secara konsisten pada berbagai browser, sistem operasi, dan platform perangkat tanpa mengalami perubahan fungsi yang signifikan.'
       ],
-      conclusion: 'Karakteristik Portability telah memenuhi standar kualitas dengan sangat baik karena sistem dapat diakses secara konsisten di berbagai perangkat serta browser.',
+
+      findings: [
+        'Sebanyak 10 test case berhasil dijalankan dengan status PASS.',
+        'Aplikasi berhasil dijalankan pada Chromium, Firefox, dan WebKit.',
+        'Aplikasi berjalan dengan baik pada Windows, Android, dan iOS.',
+        'Fitur login, My Course, dan Coding tetap berfungsi secara konsisten pada seluruh lingkungan pengujian.'
+      ],
+
+      recommendation: [
+        'Melakukan pengujian portability secara berkala pada versi browser dan sistem operasi terbaru untuk memastikan kompatibilitas aplikasi tetap terjaga.'
+      ],
+
+      conclusion:
+        'Karakteristik Portability memperoleh nilai 100%, sehingga aplikasi mampu berjalan dengan baik pada berbagai browser, sistem operasi, dan platform perangkat yang diuji.',
+
       finalStatus: 'Sangat Baik',
-      badgeColor: { bg: 'bg-emerald-50', text: 'text-emerald-700', border: 'border-emerald-200', dot: 'bg-emerald-500' },
+
+      badgeColor: {
+        bg: 'bg-emerald-50',
+        text: 'text-emerald-700',
+        border: 'border-emerald-200',
+        dot: 'bg-emerald-500'
+      },
+
       status: 'Sangat Baik'
     }
   };
@@ -285,11 +456,11 @@ const ISOChart = React.memo(function ISOChart({ data }) {
             <p className="text-[13px] text-slate-500 mt-2 font-semibold">Usability</p>
           </div>
           <div className="bg-white/92 backdrop-blur-[10px] border border-white/30 p-2 rounded-xl flex flex-col justify-between shadow-[0_12px_30px_rgba(0,0,0,0.12)]">
-            <span className="inline-flex items-center px-2 py-0.5 rounded text-[13px] font-black bg-purple-50 text-purple-700 border border-purple-100 w-fit">Regression Testing</span>
+            <span className="inline-flex items-center px-2 py-0.5 rounded text-[13px] font-black bg-purple-50 text-purple-700 border border-purple-100 w-fit">Regression Testing Cypress + Checklist</span>
             <p className="text-[13px] text-slate-500 mt-2 font-semibold">Maintainability</p>
           </div>
           <div className="bg-white/92 backdrop-blur-[10px] border border-white/30 p-2 rounded-xl flex flex-col justify-between shadow-[0_12px_30px_rgba(0,0,0,0.12)]">
-            <span className="inline-flex items-center px-2 py-0.5 rounded text-[13px] font-black bg-teal-50 text-teal-700 border border-teal-100 w-fit">Cross Browser Testing</span>
+            <span className="inline-flex items-center px-2 py-0.5 rounded text-[13px] font-black bg-teal-50 text-teal-700 border border-teal-100 w-fit">Playwright</span>
             <p className="text-[13px] text-slate-500 mt-2 font-semibold">Portability</p>
           </div>
         </div>
@@ -305,8 +476,8 @@ const ISOChart = React.memo(function ISOChart({ data }) {
               key={item.id}
               onClick={() => handleCardClick(item.id)}
               className={`relative bg-white/92 backdrop-blur-[10px] border rounded-2xl p-3 flex flex-col justify-between shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.18)] hover:-translate-y-1 transition-all duration-300 ease-out h-[135px] cursor-pointer select-none ${isActive
-                  ? 'ring-2 ring-blue-500 border-blue-500 bg-blue-50/5'
-                  : 'border-white/30'
+                ? 'ring-2 ring-blue-500 border-blue-500 bg-blue-50/5'
+                : 'border-white/30'
                 }`}
             >
               {/* Quality Status Badge in top-right corner */}
@@ -370,10 +541,10 @@ const ISOChart = React.memo(function ISOChart({ data }) {
             </span>
           </div>
         </div>
- 
+
         {/* Detail Panel Body */}
         <div className="space-y-3">
- 
+
           {/* Row 1: Alat Pengujian & Metode Pengujian */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {/* Alat Pengujian section */}
@@ -386,7 +557,7 @@ const ISOChart = React.memo(function ISOChart({ data }) {
                 {activeDetails.tool}
               </div>
             </div>
- 
+
             {/* Metode Pengujian section */}
             <div className="bg-white/15 border border-white/20 backdrop-blur-md rounded-xl p-2.5 space-y-1.5">
               <div className="flex items-center text-[15px] md:text-[16px] font-extrabold text-slate-800 uppercase tracking-wider">
@@ -398,7 +569,7 @@ const ISOChart = React.memo(function ISOChart({ data }) {
               </div>
             </div>
           </div>
- 
+
           {/* Row 2: Hasil Pengujian */}
           <div className="bg-white/15 border border-white/20 backdrop-blur-md rounded-xl p-2.5 space-y-1.5">
             <div className="flex items-center text-[15px] md:text-[16px] font-extrabold text-slate-800 uppercase tracking-wider">
@@ -406,8 +577,8 @@ const ISOChart = React.memo(function ISOChart({ data }) {
               Hasil Pengujian
             </div>
             <div className={`p-2.5 rounded-lg border shadow-[0_12px_30px_rgba(0,0,0,0.12)] space-y-2.5 border-l-4 ${activeId === 'security'
-                ? 'bg-red-50/40 border-red-200 border-l-red-500'
-                : 'bg-white/92 backdrop-blur-[10px] border-white/30 border-l-emerald-500'
+              ? 'bg-red-50/40 border-red-200 border-l-red-500'
+              : 'bg-white/92 backdrop-blur-[10px] border-white/30 border-l-emerald-500'
               }`}>
               <div className="text-[14px] md:text-[15px] font-bold text-slate-800 whitespace-pre-line leading-relaxed">
                 {activeDetails.detailResult}
@@ -435,8 +606,8 @@ const ISOChart = React.memo(function ISOChart({ data }) {
               Ringkasan Temuan
             </div>
             <div className={`p-2.5 rounded-lg border shadow-[0_12px_30px_rgba(0,0,0,0.12)] border-l-4 ${activeId === 'security'
-                ? 'bg-red-50/40 border-red-200 border-l-red-500'
-                : 'bg-white/92 backdrop-blur-[10px] border-white/30 border-l-teal-500'
+              ? 'bg-red-50/40 border-red-200 border-l-red-500'
+              : 'bg-white/92 backdrop-blur-[10px] border-white/30 border-l-teal-500'
               }`}>
               <ul className="space-y-2.5 list-none pl-1">
                 {activeDetails.findings.map((finding, idx) => (
@@ -449,17 +620,17 @@ const ISOChart = React.memo(function ISOChart({ data }) {
             </div>
           </div>
 
-          {/* Row 4: Interpretasi */}
+          {/* Row 4: Analysis */}
           <div className="bg-white/15 border border-white/20 backdrop-blur-md rounded-xl p-2.5 space-y-1.5">
             <div className="flex items-center text-[15px] md:text-[16px] font-extrabold text-slate-800 uppercase tracking-wider">
               <Icons.LineChart className="w-4.5 h-4.5 mr-2 text-amber-500" strokeWidth={2.5} />
-              Interpretasi
+              Analysis
             </div>
             <div className="bg-white/92 backdrop-blur-[10px] border border-white/30 p-2.5 rounded-lg text-[14px] text-slate-700 font-semibold leading-normal border-l-4 border-l-amber-500">
-              {activeDetails.interpretation}
+              {activeDetails.analysis}
             </div>
           </div>
- 
+
           {/* Row 5: Rekomendasi */}
           <div className="bg-white/15 border border-white/20 backdrop-blur-md rounded-xl p-2.5 space-y-1.5">
             <div className="flex items-center text-[15px] md:text-[16px] font-extrabold text-slate-800 uppercase tracking-wider">
@@ -467,8 +638,8 @@ const ISOChart = React.memo(function ISOChart({ data }) {
               Rekomendasi
             </div>
             <div className={`p-2.5 rounded-lg border text-[14px] font-semibold leading-normal shadow-[0_12px_30px_rgba(0,0,0,0.12)] border-l-4 ${activeId === 'security'
-                ? 'bg-red-50/40 border-red-200 border-l-red-500 text-red-950'
-                : 'bg-purple-50/10 border-purple-200 border-l-purple-500 text-purple-950'
+              ? 'bg-red-50/40 border-red-200 border-l-red-500 text-red-950'
+              : 'bg-purple-50/10 border-purple-200 border-l-purple-500 text-purple-950'
               }`}>
               {activeDetails.recommendation && activeDetails.recommendation.length > 1 ? (
                 <ul className="space-y-2 list-none pl-1">
@@ -487,23 +658,23 @@ const ISOChart = React.memo(function ISOChart({ data }) {
               )}
             </div>
           </div>
- 
+
           {/* Row 6: Kesimpulan */}
           <div className="bg-white/15 border border-white/20 backdrop-blur-md rounded-xl p-2.5 space-y-1.5">
             <div className="flex items-center text-[15px] md:text-[16px] font-extrabold text-slate-800 uppercase tracking-wider">
               <Icons.Award className={`w-4.5 h-4.5 mr-2 ${activeDetails.status === 'Sangat Baik' || activeDetails.status === 'Baik'
-                  ? 'text-emerald-500'
-                  : activeDetails.status === 'Cukup'
-                    ? 'text-orange-500'
-                    : 'text-red-500'
+                ? 'text-emerald-500'
+                : activeDetails.status === 'Cukup'
+                  ? 'text-orange-500'
+                  : 'text-red-500'
                 }`} strokeWidth={2.5} />
               Kesimpulan
             </div>
             <div className={`p-2.5 rounded-lg border text-[14px] font-semibold leading-normal shadow-[0_12px_30px_rgba(0,0,0,0.12)] border-l-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3 ${activeId === 'security'
-                ? 'bg-red-50/40 border-red-200 border-l-red-500 text-red-950'
-                : activeDetails.status === 'Sangat Baik' || activeDetails.status === 'Baik'
-                  ? 'bg-emerald-50/10 border-emerald-200 border-l-emerald-500 text-slate-700'
-                  : 'bg-orange-50/10 border-orange-200 border-l-orange-500 text-slate-700'
+              ? 'bg-red-50/40 border-red-200 border-l-red-500 text-red-950'
+              : activeDetails.status === 'Sangat Baik' || activeDetails.status === 'Baik'
+                ? 'bg-emerald-50/10 border-emerald-200 border-l-emerald-500 text-slate-700'
+                : 'bg-orange-50/10 border-orange-200 border-l-orange-500 text-slate-700'
               }`}>
               <div className="leading-relaxed md:max-w-[70%]">
                 {activeDetails.conclusion}

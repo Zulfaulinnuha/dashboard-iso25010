@@ -1,44 +1,56 @@
 export const feedbackData = [
   {
-    id: 'feedback-1',
-    category: 'UI/UX',
-    respondents: 15,
-    summary: 'Pengguna menilai tampilan aplikasi masih terlalu sederhana, kurang menarik, kurang berwarna, dan kurang interaktif.',
-    recommendation: 'Menambahkan variasi warna, meningkatkan visual card, memperbaiki tipografi, serta mempertimbangkan dark mode.'
-  },
+  id: 'feedback-1',
+  category: 'UI / UX',
+  respondents: 19,
+  summary:
+    'Sebagian besar responden menilai tampilan aplikasi masih terlalu sederhana, kurang menarik, kurang berwarna, dan belum cukup interaktif.',
+  recommendation:
+    'Menyempurnakan desain antarmuka, meningkatkan konsistensi visual, memperbaiki tipografi, serta mempertimbangkan penambahan dark mode agar pengalaman pengguna menjadi lebih menarik.'
+},
   {
-    id: 'feedback-2',
-    category: 'Responsivitas Mobile',
-    respondents: 7,
-    summary: 'Pengguna merasa tampilan aplikasi pada perangkat mobile belum nyaman digunakan.',
-    recommendation: 'Mengoptimalkan responsive layout dan meningkatkan kenyamanan penggunaan pada perangkat mobile.'
-  },
+  id:'feedback-2',
+  category:'Materi Pembelajaran',
+  respondents:8,
+  summary:
+    'Responden menilai materi pembelajaran terlalu panjang dan didominasi teks sehingga mengurangi minat membaca.',
+  recommendation:
+    'Menyajikan materi secara lebih ringkas, membagi materi ke dalam beberapa bagian, serta menambahkan ringkasan dan elemen visual pendukung.'
+},
   {
-    id: 'feedback-3',
-    category: 'Materi Pembelajaran',
-    respondents: 8,
-    summary: 'Materi dianggap terlalu panjang dan terlalu banyak teks sehingga mengurangi minat membaca.',
-    recommendation: 'Membagi materi menjadi beberapa bagian, menambahkan ringkasan, dan menggunakan elemen visual pendukung.'
-  },
+  id:'feedback-3',
+  category:'Navigasi',
+  respondents:7,
+  summary:
+    'Beberapa responden mengalami kesulitan mengikuti alur penggunaan aplikasi dan menginginkan navigasi yang lebih jelas.',
+  recommendation:
+    'Menyederhanakan alur navigasi serta menambahkan tombol Home, Back, indikator progres pembelajaran, dan penempatan tombol Submit yang lebih sesuai dengan alur penggunaan.'
+},
   {
-    id: 'feedback-4',
-    category: 'Navigasi',
-    respondents: 7,
-    summary: 'Pengguna mengalami kesulitan memahami alur penggunaan aplikasi dan perpindahan antar halaman.',
-    recommendation: 'Menambahkan tombol Home, Back, dan indikator progres pembelajaran.'
-  },
+  id:'feedback-4',
+  category:'Responsivitas Mobile',
+  respondents:6,
+  summary:
+    'Beberapa responden menilai tampilan aplikasi pada perangkat mobile masih kurang nyaman dan belum sepenuhnya responsif.',
+  recommendation:
+    'Mengoptimalkan tampilan responsif pada berbagai ukuran layar agar aplikasi lebih nyaman digunakan melalui perangkat mobile.'
+},
   {
-    id: 'feedback-5',
-    category: 'Validasi Password',
-    respondents: 5,
-    summary: 'Pengguna menginginkan petunjuk format password yang lebih jelas.',
-    recommendation: 'Menambahkan password hint, indikator kekuatan password, dan fitur show password.'
-  },
+  id:'feedback-5',
+  category:'Performa Sistem',
+  respondents:5,
+  summary:
+    'Beberapa responden masih merasakan waktu loading halaman dan proses submit yang relatif lambat.',
+  recommendation:
+    'Mengoptimalkan waktu pemuatan halaman dan proses submit agar aplikasi memberikan pengalaman penggunaan yang lebih responsif.'
+},
   {
-    id: 'feedback-6',
-    category: 'Performa Sistem',
-    respondents: 6,
-    summary: 'Pengguna mengeluhkan loading halaman dan proses submit yang masih lambat.',
-    recommendation: 'Mengoptimalkan performa backend, caching, dan request aplikasi.'
-  }
+  id:'feedback-6',
+  category:'Registrasi dan Validasi',
+  respondents:4,
+  summary:
+    'Responden mengharapkan informasi validasi pada proses registrasi lebih jelas, terutama mengenai format password dan konfirmasi password.',
+  recommendation:
+    'Menambahkan petunjuk format password, indikator kekuatan password, serta validasi yang lebih informatif ketika terjadi kesalahan input.'
+}
 ];
