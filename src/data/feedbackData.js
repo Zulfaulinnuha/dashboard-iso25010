@@ -2,7 +2,7 @@ export const feedbackData = [
   {
   id: 'feedback-1',
   category: 'UI / UX',
-  respondents: 19,
+  frequency: 19,
   summary:
     'Sebagian besar responden menilai tampilan aplikasi masih terlalu sederhana, kurang menarik, kurang berwarna, dan belum cukup interaktif.',
   recommendation:
@@ -11,7 +11,7 @@ export const feedbackData = [
   {
   id:'feedback-2',
   category:'Materi Pembelajaran',
-  respondents:8,
+  frequency: 8,
   summary:
     'Responden menilai materi pembelajaran terlalu panjang dan didominasi teks sehingga mengurangi minat membaca.',
   recommendation:
@@ -20,7 +20,7 @@ export const feedbackData = [
   {
   id:'feedback-3',
   category:'Navigasi',
-  respondents:7,
+  frequency: 7,
   summary:
     'Beberapa responden mengalami kesulitan mengikuti alur penggunaan aplikasi dan menginginkan navigasi yang lebih jelas.',
   recommendation:
@@ -29,7 +29,7 @@ export const feedbackData = [
   {
   id:'feedback-4',
   category:'Responsivitas Mobile',
-  respondents:6,
+  frequency: 6,
   summary:
     'Beberapa responden menilai tampilan aplikasi pada perangkat mobile masih kurang nyaman dan belum sepenuhnya responsif.',
   recommendation:
@@ -38,7 +38,7 @@ export const feedbackData = [
   {
   id:'feedback-5',
   category:'Performa Sistem',
-  respondents:5,
+  frequency: 5,
   summary:
     'Beberapa responden masih merasakan waktu loading halaman dan proses submit yang relatif lambat.',
   recommendation:
@@ -47,7 +47,7 @@ export const feedbackData = [
   {
   id:'feedback-6',
   category:'Registrasi dan Validasi',
-  respondents:4,
+  frequency: 4,
   summary:
     'Responden mengharapkan informasi validasi pada proses registrasi lebih jelas, terutama mengenai format password dan konfirmasi password.',
   recommendation:

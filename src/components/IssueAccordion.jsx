@@ -124,7 +124,7 @@ const IssueAccordion = React.memo(function IssueAccordion({
                       Kategori: {item.category}
                     </span>
                     <span className={`px-2.5 py-0.5 rounded-full text-[13px] font-bold border ${style.badge}`}>
-                      Jumlah Responden: {item.respondents}
+                      Jumlah Masukan: {item.frequency}
                     </span>
                   </div>
                 )}
